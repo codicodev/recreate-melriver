@@ -3,18 +3,18 @@ import React from "react";
 const caseStudies = [
   {
     id: 1,
-    title: "Website 1",
-    bg: "red",
+    title: "Design system with web components",
+    bg: "#f44336",
   },
   {
     id: 2,
     title: "Website 2",
-    bg: "green",
+    bg: "#e91e63",
   },
   {
     id: 3,
     title: "Website 3",
-    bg: "blue",
+    bg: "#9c27b0",
   },
 ];
 

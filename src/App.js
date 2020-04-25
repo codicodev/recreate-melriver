@@ -4,6 +4,7 @@ import "./styles/App.scss";
 import Header from "./components/Header";
 import Banner from "./components/Banner";
 import Cases from "./components/Cases";
+import IntroOverlay from "./components/IntroOverlay";
 
 const App = () => {
   useEffect(() => {
@@ -13,6 +14,7 @@ const App = () => {
 
   return (
     <div>
+      <IntroOverlay />
       <Header />
       <Banner />
       <Cases />

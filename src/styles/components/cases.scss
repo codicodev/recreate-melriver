@@ -20,6 +20,8 @@
         box-sizing: border-box;
         z-index: 1;
         position: relative;
+        font-size: 2rem;
+        line-height: 2.25rem;
         @include media("<=tablet") {
           width: 100vw;
         }
