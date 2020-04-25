@@ -3,6 +3,7 @@ import "./styles/App.scss";
 
 import Header from "./components/Header";
 import Banner from "./components/Banner";
+import Cases from "./components/Cases";
 
 const App = () => {
   useEffect(() => {
@@ -14,6 +15,7 @@ const App = () => {
     <div>
       <Header />
       <Banner />
+      <Cases />
     </div>
   );
 };

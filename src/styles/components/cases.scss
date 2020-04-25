@@ -1,0 +1,32 @@
+.cases {
+  height: 50vh;
+  height: calc(var(--vh, 1vh) * 50);
+  .row {
+    @include media("<=tablet") {
+      flex-direction: column;
+    }
+    .case {
+      position: relative;
+      background: $black;
+      cursor: pointer;
+      .case-details {
+        width: 33.333vw;
+        height: 50vh;
+        height: calc(var(--vh, 1vh) * 50);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 32px;
+        box-sizing: border-box;
+        z-index: 1;
+        position: relative;
+        @include media("<=tablet") {
+          width: 100vw;
+        }
+        @include media("<=phone") {
+          padding: 16px;
+        }
+      }
+    }
+  }
+}

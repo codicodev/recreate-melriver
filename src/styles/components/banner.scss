@@ -1,7 +1,6 @@
 .main {
-  height: 50vh; //fallback
+  height: 50vh;
   height: calc(var(--vh, 1vh) * 50);
-  border: 1px solid red;
   background-color: $white;
   .row {
     flex-direction: column;
