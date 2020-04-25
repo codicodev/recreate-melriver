@@ -29,27 +29,28 @@ const App = () => {
         height: 0,
         ease: "expo.inOut",
         delay: -0.6,
-        stagger: {
-          amount: 0.4,
-        },
+        // stagger: {
+        //   amount: 0.4,
+        // },
       })
       .to(".overlay-bottom", 1.6, {
         width: 0,
         ease: "expo.inOut",
         delay: -0.4,
         stagger: {
-          amount: 0.4,
+          amount: 0.2,
         },
-      });
+      })
+      .to(".intro-overlay", 0, { css: { display: "none" } });
   }, []);
 
   return (
-    <div>
+    <>
       <IntroOverlay />
       <Header />
       <Banner />
       <Cases />
-    </div>
+    </>
   );
 };
 
