@@ -1,8 +1,25 @@
 import React, { useEffect } from "react";
+import { Route } from "react-router-dom";
 import gsap from "gsap";
 import "./styles/App.scss";
 
+import Header from "./components/Header";
+
 import Home from "./pages/Home";
+import About from "./pages/About";
+
+const routes = [
+  {
+    path: "/",
+    Component: Home,
+    name: "Home",
+  },
+  {
+    path: "/about",
+    Component: About,
+    name: "About",
+  },
+];
 
 const App = () => {
   useEffect(() => {
@@ -15,7 +32,14 @@ const App = () => {
 
   return (
     <>
-      <Home />
+      <Header />
+      <main>
+        {routes.map(({ path, Component, name }) => (
+          <Route key={name} exact path={path}>
+            <Component />
+          </Route>
+        ))}
+      </main>
     </>
   );
 };

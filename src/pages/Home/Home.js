@@ -54,7 +54,6 @@ const Home = () => {
   return (
     <>
       {!animationComplete ? <IntroOverlay /> : null}
-      <Header />
       <Banner />
       <Cases />
     </>
