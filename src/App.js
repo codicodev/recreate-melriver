@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
-import { Route } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Route, Switch } from "react-router-dom";
 import gsap from "gsap";
 import "./styles/App.scss";
 
 import Header from "./components/Header";
+import Navigation from "./components/Navigation";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -34,12 +35,16 @@ const App = () => {
     <>
       <Header />
       <main>
-        {routes.map(({ path, Component, name }) => (
-          <Route key={name} exact path={path}>
-            <Component />
-          </Route>
-        ))}
+        <Switch>
+          {routes.map(({ path, Component, name }) => (
+            <Route key={name} exact path={path}>
+              <Component />
+            </Route>
+          ))}
+          <Route exact render={() => <div>Not found</div>} />
+        </Switch>
       </main>
+      <Navigation />
     </>
   );
 };
