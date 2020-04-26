@@ -22,18 +22,46 @@ const routes = [
   },
 ];
 
-const App = () => {
-  useEffect(() => {
-    const vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
+function debounce(fn, ms) {
+  let timer;
+  return () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      timer = null;
+      fn.apply(this, arguments);
+    }, ms);
+  };
+}
 
+const App = () => {
+  const [dimensions, setDimensions] = useState({
+    height: window.innerHeight,
+    width: window.innerWidth,
+  });
+
+  useEffect(() => {
     //prevent flash body on refresh
     gsap.to("body", 0, { css: { visibility: "visible" } });
-  }, []);
+    let vh = dimensions.height * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
 
+    const debouncedHandlResize = debounce(function handleResize() {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth,
+      });
+    }, 1000);
+
+    window.addEventListener("resize", debouncedHandlResize);
+
+    return () => {
+      window.removeEventListener("resize", debouncedHandlResize);
+    };
+  });
+  console.log("app loaded");
   return (
     <>
-      <Header />
+      <Header dimensions={dimensions} />
       <main>
         <Switch>
           {routes.map(({ path, Component, name }) => (
