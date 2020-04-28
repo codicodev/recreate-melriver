@@ -4,7 +4,7 @@ const caseStudies = [
   {
     id: 1,
     title: "Design system with web components",
-    bg: "#3f51b5",
+    bg: "pink",
   },
   {
     id: 2,
